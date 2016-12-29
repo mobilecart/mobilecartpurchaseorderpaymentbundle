@@ -1,0 +1,16 @@
+<script type="text/javascript">
+
+    checkout.paymentHandlers['{{ code }}'] = function(buttonEl) {
+        var code = "{{ code }}";
+
+        var numberEl = $('#payment-' + code).find('input[name="' + code + '[number]"]');
+        var poNumber = numberEl.val();
+
+        return {
+            payment_method: code,
+            "po[number]": poNumber
+        };
+    }
+
+</script>
+
