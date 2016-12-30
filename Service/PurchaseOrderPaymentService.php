@@ -386,6 +386,7 @@ class PurchaseOrderPaymentService
     public function extractOrderPaymentData()
     {
         $orderData = $this->getOrderData();
+        $paymentData = $this->getPaymentData();
 
         return [
             'code' => $this->getCode(),
@@ -394,11 +395,7 @@ class PurchaseOrderPaymentService
             'base_amount' => $orderData['base_total'],
             'currency' => $orderData['currency'],
             'amount' => $orderData['total'],
-            'is_refund' => $this->getIsRefund(),
-            'confirmation' => $this->getConfirmation(),
-            'cc_fingerprint' => $this->getCcFingerprint(),
-            'cc_last_four' => $this->getCcLastFour(),
-            'cc_type' => $this->getCcType(),
+            'reference_nbr' => $paymentData['reference_nbr'],
         ];
     }
 

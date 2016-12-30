@@ -15,7 +15,7 @@ class PurchaseOrderPaymentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('number', 'text', [
+        $builder->add('reference_nbr', 'text', [
                 'label' => 'PO Number',
                 'required' => 1,
                 'constraints' => [
