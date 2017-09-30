@@ -5,6 +5,10 @@ namespace MobileCart\PurchaseOrderPaymentBundle\Service;
 use MobileCart\PurchaseOrderPaymentBundle\Form\PurchaseOrderPaymentType;
 use MobileCart\CoreBundle\Payment\PaymentMethodServiceInterface;
 
+/**
+ * Class PurchaseOrderPaymentService
+ * @package MobileCart\PurchaseOrderPaymentBundle\Service
+ */
 class PurchaseOrderPaymentService
     implements PaymentMethodServiceInterface
 {

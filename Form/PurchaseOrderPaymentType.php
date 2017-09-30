@@ -4,9 +4,14 @@ namespace MobileCart\PurchaseOrderPaymentBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * Class PurchaseOrderPaymentType
+ * @package MobileCart\PurchaseOrderPaymentBundle\Form
+ */
 class PurchaseOrderPaymentType extends AbstractType
 {
     /**
@@ -15,9 +20,9 @@ class PurchaseOrderPaymentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('reference_nbr', 'text', [
+        $builder->add('reference_nbr', TextType::class, [
                 'label' => 'PO Number',
-                'required' => 1,
+                'required' => true,
                 'constraints' => [
                     new NotBlank(),
                 ],
@@ -31,7 +36,7 @@ class PurchaseOrderPaymentType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'po';
     }

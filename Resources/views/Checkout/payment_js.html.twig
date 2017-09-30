@@ -1,6 +1,7 @@
 <script type="text/javascript">
+$(function() {
 
-    checkout.paymentHandlers['{{ code }}'] = function(buttonEl) {
+    paymentWidget.addPostDataGetter("{{ code }}", function(){
         var code = "{{ code }}";
 
         var numberEl = $('#payment-' + code).find('input[name="' + code + '[reference_nbr]"]');
@@ -10,7 +11,7 @@
             payment_method: code,
             "po[reference_nbr]": poNumber
         };
-    }
-
+    });
+});
 </script>
 
