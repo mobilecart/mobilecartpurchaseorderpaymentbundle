@@ -2,7 +2,6 @@
 
 namespace MobileCart\PurchaseOrderPaymentBundle\Service;
 
-use MobileCart\PurchaseOrderPaymentBundle\Form\PurchaseOrderPaymentType;
 use MobileCart\CoreBundle\Payment\PaymentMethodServiceInterface;
 
 /**
@@ -161,10 +160,8 @@ class PurchaseOrderPaymentService
      */
     public function buildForm()
     {
-        $formType = new PurchaseOrderPaymentType();
-        $form = $this->getFormFactory()->create($formType);
-        $this->setForm($form);
-
+        $formTypeClass = 'MobileCart\PurchaseOrderPaymentBundle\Form\PurchaseOrderPaymentType';
+        $this->setForm($this->getFormFactory()->create($formTypeClass));
         return $this;
     }
 
