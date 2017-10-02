@@ -6,7 +6,7 @@ $(function() {
 
         var numberEl = $('#payment-' + code).find('input[name="' + code + '[reference_nbr]"]');
         var poNumber = numberEl.val();
-
+        console.log('PO : ' + poNumber);
         return {
             payment_method: code,
             "po[reference_nbr]": poNumber
