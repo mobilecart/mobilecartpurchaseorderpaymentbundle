@@ -3,7 +3,6 @@
 namespace MobileCart\PurchaseOrderPaymentBundle\EventListener\Payment;
 
 use MobileCart\CoreBundle\CartComponent\ArrayWrapper;
-use MobileCart\CoreBundle\Constants\EntityConstants;
 use MobileCart\CoreBundle\Event\Payment\FilterPaymentMethodCollectEvent;
 use MobileCart\CoreBundle\Payment\PaymentMethodServiceInterface;
 
@@ -19,14 +18,9 @@ class PaymentMethodHandler
     protected $paymentMethodService;
 
     /**
-     * @var \MobileCart\CoreBundle\Service\AbstractEntityService
+     * @var \MobileCart\CoreBundle\Service\CartService
      */
-    protected $entityService;
-
-    /**
-     * @var \MobileCart\CoreBundle\Service\CartSessionService
-     */
-    protected $cartSessionService;
+    protected $cartService;
 
     /**
      * @var bool
@@ -52,39 +46,29 @@ class PaymentMethodHandler
     }
 
     /**
-     * @param $entityService
-     * @return $this
-     */
-    public function setEntityService($entityService)
-    {
-        $this->entityService = $entityService;
-        return $this;
-    }
-
-    /**
      * @return \MobileCart\CoreBundle\Service\AbstractEntityService
      */
     public function getEntityService()
     {
-        return $this->entityService;
+        return $this->getCartService()->getEntityService();
     }
 
     /**
-     * @param $cartSessionService
+     * @param $cartService
      * @return $this
      */
-    public function setCartSessionService($cartSessionService)
+    public function setCartService($cartService)
     {
-        $this->cartSessionService = $cartSessionService;
+        $this->cartService = $cartService;
         return $this;
     }
 
     /**
-     * @return \MobileCart\CoreBundle\Service\CartSessionService
+     * @return \MobileCart\CoreBundle\Service\CartService
      */
-    public function getCartSessionService()
+    public function getCartService()
     {
-        return $this->cartSessionService;
+        return $this->cartService;
     }
 
     /**
